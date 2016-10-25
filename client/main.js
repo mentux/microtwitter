@@ -1,6 +1,6 @@
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
-import {Mensagem} from '/lib/collection.js';
+import {listaDeMensagens} from '/lib/collection.js';
 
 import './main.html';
 
@@ -12,7 +12,7 @@ Template.formulario.events({
         var conteudo = template.find('#conteudo').value;
 
         //adicionando um novo objeto dentro da COLLECTION "Mensagem"
-        Mensagem.insert({
+        listaDeMensagens.insert({
             //atributo "nome"
             nome: nome,
             //atributo "conteudo"
@@ -32,5 +32,5 @@ Template.formulario.events({
 
 Template.mensagens.timeline = function () {
     //retornando a lista de mensagens da COLLECTION "Mensagem"
-    return Mensagem.find({},{sort: {data: -1}});
+    return listaDeMensagens.find({},{sort: {data: -1}});
 };

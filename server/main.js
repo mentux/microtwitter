@@ -1,8 +1,9 @@
 import { Meteor } from 'meteor/meteor';
-import {Mensagem} from '/lib/collection.js';
+import {listaDeMensagens} from '/lib/collection.js';
 
 Meteor.startup(() => {
-    Mensagem.remove({});
+    //Removendo todas as entradas na lista de mensagens
+    listaDeMensagens.remove({});
     console.log("Rodando MicroTwitter");
 });
 
